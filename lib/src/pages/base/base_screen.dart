@@ -23,7 +23,7 @@ class _BaseScreenState extends State<BaseScreen> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: const[
+        children: const [
           HomeTab(),
           CartTab(),
           OrdersTab(),
@@ -36,7 +36,12 @@ class _BaseScreenState extends State<BaseScreen> {
         onTap: (index) {
           setState(() {
             currentIndex = index;
-            pageController.jumpToPage(index);
+            //pageController.jumpToPage(index); // Faz com que quando clicar num bottom ele pule para proxima pagina.
+            pageController.animateToPage( // Faz acontecer uma animação quando clica num botão arrastando para próxima página.
+              index,
+              duration: const Duration(milliseconds: 700),
+              curve: Curves.ease,
+            );
           });
         },
         type: BottomNavigationBarType.fixed,
@@ -45,21 +50,12 @@ class _BaseScreenState extends State<BaseScreen> {
         unselectedItemColor: Colors.white.withAlpha(100),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home'
-          ),
+              icon: Icon(Icons.home_outlined), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Carrinho'
-          ),
+              icon: Icon(Icons.shopping_cart_outlined), label: 'Carrinho'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Pedidos'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Pedidos'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outlined),
-            label: 'perfil'
-          ),
+              icon: Icon(Icons.person_outlined), label: 'perfil'),
         ],
       ),
     );

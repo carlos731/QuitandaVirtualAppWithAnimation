@@ -1,6 +1,8 @@
 import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:add_to_cart_animation/add_to_cart_icon.dart';
+import 'package:app/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../config/custom_colors.dart';
 import 'components/category_tile.dart';
 import 'package:app/src/config/app_data.dart' as appData;
@@ -9,13 +11,13 @@ import 'components/item_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+  
 
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
 
-class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin{
-  
+class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
   //Para mater a homeTab sempre viva, corrigindo o bug de mudança de tela
   @override
   bool get wantKeepAlive => true;
@@ -29,6 +31,8 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin{
   void itemSelectedCartAnimations(GlobalKey gkImage) {
     runAddToCardAnimation(gkImage);
   }
+
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
