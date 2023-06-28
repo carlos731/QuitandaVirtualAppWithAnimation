@@ -1,4 +1,5 @@
 import 'package:app/src/pages/auth/sign_in_screen.dart';
+import 'package:app/src/pages/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      home: const SplashScreen(),
     );
   }
 }

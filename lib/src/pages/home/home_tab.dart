@@ -4,6 +4,7 @@ import 'package:app/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../config/custom_colors.dart';
+import '../common_widgets/app_name_widget.dart';
 import 'components/category_tile.dart';
 import 'package:app/src/config/app_data.dart' as appData;
 
@@ -42,25 +43,7 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: Text.rich(
-          TextSpan(
-            style: const TextStyle(
-              fontSize: 30,
-            ),
-            children: [
-              TextSpan(
-                  text: 'Green',
-                  style: TextStyle(
-                    color: CustomColors.customSwatchColor,
-                  )),
-              TextSpan(
-                  text: 'grocer',
-                  style: TextStyle(
-                    color: CustomColors.customContrastColor,
-                  )),
-            ],
-          ),
-        ),
+        title: const AppNameWidget(),
         //Badge
         actions: [
           Padding(
@@ -198,3 +181,5 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
     );
   }
 }
+
+
